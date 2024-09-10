@@ -25,9 +25,11 @@ class PollBot:
     """
 
     def __init__(self, user: str, password: str, host: str,
-                 login_type: str = 'uw', min_option: int = 0,
+                 login_type: str = 'pollev', min_option: int = 0,
                  max_option: int = None, closed_wait: float = 5,
-                 open_wait: float = 5, lifetime: float = float('inf')):
+                 open_wait: float = 5, lifetime: float = float('inf'),
+                 tfq_answer: bool = True, mcq_answer: int = 0,
+                 frq_answer: str = "This is true"):
         """
         Constructor. Creates a PollBot that answers polls on pollev.com.
 
@@ -77,6 +79,10 @@ class PollBot:
         }
         # IDs of all polls we have answered already
         self.answered_polls = set()
+
+        self.tfq_answer = tfq_answer
+        self.mcq_answer = mcq_answer
+        self.frq_answer = frq_answer
 
     def __enter__(self):
         return self
@@ -213,6 +219,7 @@ class PollBot:
         options = poll_data['options'][self.min_option:self.max_option]
         try:
             option_id = random.choice(options)['id']
+            logger.info(f'Answering poll {poll_id} with option {option_id}.')
         except IndexError:
             # `options` was empty
             logger.error(f'Could not answer poll: poll only has '
