@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# ignore config.py
+config.py
+pollevbot/config.py
+*config.py
+
 # Distribution / packaging
 .Python
 build/
@@ -112,3 +117,4 @@ setup.py
 /PollEvBot.egg-info
 /dev
 .pypirc
+
