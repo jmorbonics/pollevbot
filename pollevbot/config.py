@@ -1,2 +1,2 @@
-user = 'jmorbonics@gmail.com'
-password = 'Po5n80101*'
+user = "Usernamehere"
+password = "Passwordhere"
