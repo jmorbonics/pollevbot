@@ -3,7 +3,7 @@ from pollevbot.config import user, password
 
 
 def main():
-    host = 'PollEverywhere URL Extension e.g. "uwpsych"'
+    host = 'pollev host i.e. "jackmorby279"'
 
     tfq_answer = True
 

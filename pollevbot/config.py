@@ -1,2 +1,0 @@
-user = "Usernamehere"
-password = "Passwordhere"
